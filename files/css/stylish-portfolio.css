@@ -22,9 +22,6 @@ h1 {
     color: white;
    }
 
-span {
-    font-size: 100pt;
-}
 
 
 h3 {
@@ -35,6 +32,16 @@ h3 {
 
 h4{
     font-size: 20pt;
+}
+
+#name{
+     font-size: 100pt;
+     color: white;
+     font-family: monospace;
+}
+
+#my-pics{
+    z-index: -99;
 }
 
 .edit2 {
@@ -275,3 +282,49 @@ footer {
   bottom: 5px;
   right: 5px;
 }
+
+
+
+/*the poll css*/
+/** {
+        font-family: monospace;
+    }
+    #container {
+        color: #fff;
+        background:#000;
+    }
+    #container #question {
+        display: block;
+        padding: 20px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-size: 40px;
+    }
+    #container div {
+        font-weight: bold;
+        letter-spacing: 3px;
+        background: #0099cc;
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 34px;
+        color: #ffffff;
+        border-left: 20px solid #333;
+        width: 400px;
+        -webkit-border-radius: 0.5em;
+        -moz-border-radius: 0 0.5em 0.5em 0;
+        
+    }
+    #container div a {
+        border-radius: 0.3em;
+        text-decoration: none;
+        color: #0099cc;
+        padding: 5px 15px;
+        background: #333;
+        margin: 0 20px 20px 20px;
+    }
+    #container div a:hover {
+        color: #fff;
+    }
+ */
