@@ -20,10 +20,10 @@ app.set('view engine', 'handlebars');
 
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'root',
-  database : 'ratvm'
+  host     : 'sql5.freemysqlhosting.net',
+  user     : 'sql5129693',
+  password : 'kzGxKjkBrI',
+  database : 'sql5129693'
 });
 
 connection.connect(function(err) {
@@ -52,12 +52,12 @@ app.post('/create', function(req,res){
     });
 });
 
-app.delete('/delete', function(req,res){
+/*app.delete('/delete', function(req,res){
     connection.query('DELETE FROM plans WHERE id = ?', [req.body.id], function(err, result) {
       if (err) throw err;
       res.redirect('/');
     });
-});
+});*/
 
 app.put('/update', function(req,res){
 
