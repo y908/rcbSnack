@@ -18,12 +18,21 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var mysql      = require('mysql');
+/*var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'sql5.freemysqlhosting.net',
   user     : 'sql5129693',
   password : 'kzGxKjkBrI',
   database : 'sql5129693'
+});*/
+
+
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'root',
+  database : 'ratvm'
 });
 
 connection.connect(function(err) {
@@ -61,11 +70,26 @@ app.post('/create', function(req,res){
 
 app.put('/update', function(req,res){
 
-    connection.query('UPDATE plans SET plan = ? WHERE id = ?', [req.body.plan, req.body.id], function(err, result) {
+    connection.query('UPDATE plans SET vote = ? WHERE id = ?', [req.body.plan, req.body.id], function(err, result) {
       if (err) throw err;
       res.redirect('/');
     });
 });
+
+
+// TO DO --- replace 4 and 10 with ? or something like that
+// and fix main.js so that the .ajax gives us the right things to update
+
+app.put('/update2', function(req,res){
+
+    connection.query('UPDATE plans SET vote = 5 WHERE id = 10', [req.body.plan, req.body.id], function(err, result) {
+      if (err) throw err;
+      res.redirect('/');
+    });
+});
+
+
+
 
 var PORT = process.env.PORT || 3000;
 app.listen(PORT);
