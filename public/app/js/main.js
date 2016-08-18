@@ -74,6 +74,7 @@
 
 //===========================POLLS JavaScript==============================//
   $(document).ready(function() {
+
      $("#container div a").click(function() {
         if ( parseInt($(this).prev().html()) < 7){
 
@@ -84,15 +85,20 @@
             }, 500);
 
 
-            // fix below code so that we update the correct item with correct number
+            //console.log($(this).attr("bob"));
 
-             var queryURL = "/update2";
+            var voteId = $(this).attr("bob");
+            var voteNum = parseInt($(this).prev().html()) + 1;
+
+             var queryURL = "/update2/"+ voteId +"/"+ voteNum +"";
 
              $.ajax({url: queryURL, method: 'PUT'});
 
 
 
             $(this).prev().html(parseInt($(this).prev().html()) + 1);
+
+            $(this).hide();
             return false;
         } else {  
             $(this).prev().html(parseInt($(this).prev().html()) + 0);  
@@ -114,7 +120,18 @@
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here https://dashboard.stripe.com/account/apikeys
-var stripe = require("stripe")("sk_live_ytlFeWA8U8nCAdGgNK33zxIy");
+
+
+// PUT THIS CODE INTO SERVER !!!!!!!!!!!!!!!!!!!!
+
+
+// !!!!!!!!!!!!!!!! the below code has an error
+ var stripe = require("stripe"); //("sk_live_ytlFeWA8U8nCAdGgNK33zxIy");
+
+
+
+
+
 
 // (Assuming you're using express - expressjs.com)
 // Get the credit card details submitted by the form

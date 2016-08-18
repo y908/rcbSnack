@@ -18,14 +18,17 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-/*var mysql      = require('mysql');
+
+var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'sql5.freemysqlhosting.net',
   user     : 'sql5129693',
   password : 'kzGxKjkBrI',
   database : 'sql5129693'
-});*/
+});
 
+
+/*
 
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
@@ -34,6 +37,10 @@ var connection = mysql.createConnection({
   password : 'root',
   database : 'ratvm'
 });
+
+*/
+
+
 
 connection.connect(function(err) {
   if (err) {
@@ -80,11 +87,16 @@ app.put('/update', function(req,res){
 // TO DO --- replace 4 and 10 with ? or something like that
 // and fix main.js so that the .ajax gives us the right things to update
 
-app.put('/update2', function(req,res){
+app.put('/update2/:pp/:ss', function(req,res){
 
-    connection.query('UPDATE plans SET vote = 5 WHERE id = 10', [req.body.plan, req.body.id], function(err, result) {
-      if (err) throw err;
-      res.redirect('/');
+    var updateId = req.params.pp;
+    var updateNumber = req.params.ss;
+    //console.log(updateId);
+    //console.log(updateNumber);
+
+    connection.query('UPDATE plans SET vote = '+ updateNumber +' WHERE id = ' + updateId +'', [req.body.plan, req.body.id], function(err, result) {
+        if (err) throw err;
+      res.send('good job');
     });
 });
 
