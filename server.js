@@ -18,7 +18,7 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-
+/*
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'sql5.freemysqlhosting.net',
@@ -27,8 +27,8 @@ var connection = mysql.createConnection({
   database : 'sql5129693'
 });
 
+*/
 
-/*
 
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
@@ -38,7 +38,7 @@ var connection = mysql.createConnection({
   database : 'ratvm'
 });
 
-*/
+
 
 
 
